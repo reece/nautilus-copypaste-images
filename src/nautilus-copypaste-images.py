@@ -1,4 +1,3 @@
-#!/usr/bin/python
 # -*- coding: utf-8 -*-
 #
 # This file is part of nautilus-copypaste-images
@@ -27,7 +26,6 @@ except Exception as e:
     print(e)
     exit(-1)
 import os
-from threading import Thread
 from urllib import unquote_plus
 from gi.repository import GObject
 from gi.repository import Gtk
@@ -181,8 +179,8 @@ class CopyPasteImagesMenuProvider(GObject.GObject, FileManager.MenuProvider):
                     filename = filename + '.png'
                     pixbuf.savev(filename, 'png', (), ())
 
-    def about(self, widget, window):
-        ad = Gtk.AboutDialog(parent=window)
+    def about(self, window):
+        ad = Gtk.AboutDialog(parent=None)
         ad.set_name(APPNAME)
         ad.set_version(VERSION)
         ad.set_copyright('Copyrignt (c) 2016\nLorenzo Carbonell')
